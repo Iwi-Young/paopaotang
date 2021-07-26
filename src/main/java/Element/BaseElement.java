@@ -1,8 +1,11 @@
-package main.java;
+package main.java.Element;
+
+import main.java.ConstNumber;
+import main.java.MyDraw;
 
 import java.awt.*;
 
-public class BaseElement implements MyDraw{
+public class BaseElement implements MyDraw , ConstNumber {
     protected int x,y,wid,hei;
     protected Image image;
     public int getX() {

@@ -1,4 +1,7 @@
-package main.java;
+package main.java.UI;
+
+import main.java.Element.BaseElement;
+import main.java.Element.Obstacle;
 
 import javax.swing.*;
 import java.awt.*;
@@ -9,7 +12,7 @@ public class GamePanel extends JPanel {
     private int i;
     public GamePanel(BaseElement... draw){
         this.i=0;
-        draws=new BaseElement[20];
+        draws=new BaseElement[100];
         for(BaseElement d : draw) {
             this.draws[i]=d;
             i++;
