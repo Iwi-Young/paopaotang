@@ -23,9 +23,9 @@ public class Player1 extends BaseElement {
     public void setSpeed(int speed){ this.speed=speed; }
     public int getLen(){ return len; }
     public void setLen(int len){ this.len=len; }
-    public boolean collide(Obstacle[] obstacles){
-        for (Obstacle obstacle : obstacles) {
-            if (obstacle != null && obstacle.intersects(this)) {
+    public boolean collide(BaseElement... elements){
+        for (BaseElement element : elements) {
+            if (element != null && element.intersects(this)) {
                 return true;
             }
         }
