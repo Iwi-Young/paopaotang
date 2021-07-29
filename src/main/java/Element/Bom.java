@@ -1,6 +1,6 @@
 package main.java.Element;
 
-import main.java.Element.BaseElement;
+
 
 import javax.swing.*;
 

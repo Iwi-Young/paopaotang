@@ -1,3 +1,4 @@
+/*
 package main.java.Element;
 
 import main.java.Element.BaseElement;
@@ -7,7 +8,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Player2 extends BaseElement {
-    private int speed,len;
+    private int speed,len,max;
     public Player2(int x,int y) {
         this.image=new ImageIcon("src/main/resources/image/P2.png").getImage();
         this.hei=unit_len;
@@ -16,7 +17,10 @@ public class Player2 extends BaseElement {
         this.y=y;
         this.speed=10;
         this.len=unit_len;
+        this.max=1;
     }
+    public int getMax(){ return max; }
+    public void setMax(int max){this.max=max;}
     public int getSpeed(){
         return speed;
     }
@@ -49,9 +53,26 @@ public class Player2 extends BaseElement {
             this.y+=speed;
         }
     }
-    public void action(Obstacle[] obstacles){
+    public void collide(Props[] props){
+        for(Props prop:props){
+            if(prop!=null&&prop.intersects(this)){
+                if(prop.getName()==1){
+                    this.max++;
+                    prop.setName(0);
+                    prop.setImage(null);
+                }
+                else if(prop.getName()==2){
+                    this.len+=unit_len;
+                    prop.setName(0);
+                    prop.setImage(null);
+                }
+            }
+        }
+    }
+    public void action(Obstacle[] obstacles,Props[] props){
         this.xMove(obstacles);
         this.yMove(obstacles);
+        this.collide(props);
     }
     public void die(){
         Image image=new ImageIcon("src/main/resources/image/dead.png").getImage();
@@ -60,3 +81,4 @@ public class Player2 extends BaseElement {
 
     }
 }
+*/

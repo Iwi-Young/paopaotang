@@ -1,7 +1,7 @@
 package main.java.UI;
 
 import main.java.Element.BaseElement;
-import main.java.Element.Obstacle;
+
 
 import javax.swing.*;
 import java.awt.*;

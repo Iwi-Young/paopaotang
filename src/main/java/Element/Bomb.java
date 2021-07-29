@@ -15,7 +15,7 @@ public class Bomb extends BaseElement {
 public Rectangle getRec(){
         return new Rectangle(x,y,wid,hei);
 }
-public int[] intersects(Player1 p1, Player2 p2, int[] a){
+public int[] intersects(Player p1, Player p2, int[] a){
         if(p1.getRec().intersects(this.getRec())){
             a[0]=1;
         }

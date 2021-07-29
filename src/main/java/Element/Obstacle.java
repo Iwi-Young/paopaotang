@@ -1,7 +1,7 @@
 package main.java.Element;
 
 import javax.swing.*;
-import java.awt.*;
+
 
 public class Obstacle extends BaseElement{
 
