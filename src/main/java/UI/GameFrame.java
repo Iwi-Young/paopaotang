@@ -46,19 +46,24 @@ public class GameFrame extends JFrame implements ConstNumber {
 
                                     switch ((i+len-1)/len) {
                                         case 0:
-                                            bomb1[count][i].setXY(boms1[count].getX(), boms1[count].getY());
+                                            if(!new Bom(boms1[count].getX(), boms1[count].getY()).collide(obstacles))
+                                                bomb1[count][i].setXY(boms1[count].getX(), boms1[count].getY());
                                             break;
                                         case 1:
-                                            bomb1[count][i].setXY(boms1[count].getX() - unit_len * i, boms1[count].getY());
+                                            if(!new Bom(boms1[count].getX() - unit_len * i, boms1[count].getY()).collide(obstacles))
+                                                bomb1[count][i].setXY(boms1[count].getX() - unit_len * i, boms1[count].getY());
                                             break;
                                         case 2:
-                                            bomb1[count][i].setXY(boms1[count].getX() + (i - len)*unit_len, boms1[count].getY());
+                                            if(!new Bom(boms1[count].getX() + (i - len)*unit_len, boms1[count].getY()).collide(obstacles))
+                                                bomb1[count][i].setXY(boms1[count].getX() + (i - len)*unit_len, boms1[count].getY());
                                             break;
                                         case 3:
-                                            bomb1[count][i].setXY(boms1[count].getX(), boms1[count].getY() + (i - 2 * len) * unit_len);
+                                            if(!new Bom(boms1[count].getX(), boms1[count].getY() + (i - 2 * len) * unit_len).collide(obstacles))
+                                                bomb1[count][i].setXY(boms1[count].getX(), boms1[count].getY() + (i - 2 * len) * unit_len);
                                             break;
                                         case 4:
-                                            bomb1[count][i].setXY(boms1[count].getX(), boms1[count].getY() - (i - 3 * len) * unit_len);
+                                            if(!new Bom(boms1[count].getX(), boms1[count].getY() - (i - 3 * len) * unit_len).collide(obstacles))
+                                                bomb1[count][i].setXY(boms1[count].getX(), boms1[count].getY() - (i - 3 * len) * unit_len);
                                             break;
                                     }
                                 }
@@ -105,19 +110,24 @@ public class GameFrame extends JFrame implements ConstNumber {
 
                                     switch ((i+len-1)/len) {
                                         case 0:
-                                            bomb2[count][i].setXY(boms2[count].getX(), boms2[count].getY());
+                                            if(!new Bom(boms2[count].getX(), boms2[count].getY()).collide(obstacles))
+                                                bomb2[count][i].setXY(boms2[count].getX(), boms2[count].getY());
                                             break;
                                         case 1:
-                                            bomb2[count][i].setXY(boms2[count].getX() - unit_len * i, boms2[count].getY());
+                                            if(!new Bom(boms2[count].getX() - unit_len * i, boms2[count].getY()).collide(obstacles))
+                                                bomb2[count][i].setXY(boms2[count].getX() - unit_len * i, boms2[count].getY());
                                             break;
                                         case 2:
-                                            bomb2[count][i].setXY(boms2[count].getX() + (i - len)*unit_len, boms2[count].getY());
+                                            if(!new Bom(boms2[count].getX() + (i - len)*unit_len, boms2[count].getY()).collide(obstacles))
+                                                bomb2[count][i].setXY(boms2[count].getX() + (i - len)*unit_len, boms2[count].getY());
                                             break;
                                         case 3:
-                                            bomb2[count][i].setXY(boms2[count].getX(), boms2[count].getY() + (i - 2 * len) * unit_len);
+                                            if(!new Bom(boms2[count].getX(), boms2[count].getY() + (i - 2 * len) * unit_len).collide(obstacles))
+                                                bomb2[count][i].setXY(boms2[count].getX(), boms2[count].getY() + (i - 2 * len) * unit_len);
                                             break;
                                         case 4:
-                                            bomb2[count][i].setXY(boms2[count].getX(), boms2[count].getY() - (i - 3 * len) * unit_len);
+                                            if(!new Bom(boms2[count].getX(), boms2[count].getY() - (i - 3 * len) * unit_len).collide(obstacles))
+                                                bomb2[count][i].setXY(boms2[count].getX(), boms2[count].getY() - (i - 3 * len) * unit_len);
                                             break;
                                     }
                                 }
@@ -182,7 +192,7 @@ public class GameFrame extends JFrame implements ConstNumber {
 
             }
         };
-        timer.schedule(timertask,0,25);
+        timer.schedule(timertask,0,30);
     }
 
     private GamePanel init(){
@@ -190,7 +200,7 @@ public class GameFrame extends JFrame implements ConstNumber {
         count1=-1;count2=-1;
         /*****初始化障碍******/
         for(int i=0;i<12;i++){
-            obstacles[i]=new Obstacle(10*unit_len,i*unit_len);
+            obstacles[i]=new Obstacle(10*(unit_len+1),i*(1+unit_len));
             panel.add(obstacles[i]);
         }
         /******初始化道具*****/

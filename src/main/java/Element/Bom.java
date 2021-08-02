@@ -21,4 +21,12 @@ public class Bom extends BaseElement {
         this.x=x;
         this.y=y;
     }
+    public boolean collide(BaseElement... elements){
+        for (BaseElement element : elements) {
+            if (element != null && element.intersects(this)) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
