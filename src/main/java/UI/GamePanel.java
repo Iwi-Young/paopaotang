@@ -12,7 +12,7 @@ public class GamePanel extends JPanel {
     private int i;
     public GamePanel(BaseElement... draw){
         this.i=0;
-        draws=new BaseElement[100];
+        draws=new BaseElement[200];
         for(BaseElement d : draw) {
             this.draws[i]=d;
             i++;

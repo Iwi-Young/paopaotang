@@ -5,23 +5,27 @@ import java.awt.*;
 
 
 public class Bomb extends BaseElement {
-    public Bomb(int x,int y,int wid,int hei){
+    public Bomb(int x,int y){
         this.x=x;
         this.y=y;
-        this.wid=wid;
-        this.hei=hei;
+        this.wid=unit_len;
+        this.hei=unit_len;
         this.image=new ImageIcon("src/main/resources/image/bom.png").getImage();
     }
 public Rectangle getRec(){
         return new Rectangle(x,y,wid,hei);
 }
-public int[] intersects(Player p1, Player p2, int[] a){
+public void intersects(Player p1, Player p2){
         if(p1.getRec().intersects(this.getRec())){
-            a[0]=1;
+            p1.die();
         }
         if(p2.getRec().intersects(this.getRec())){
-            a[1]=1;
+            p2.die();
         }
-        return a;
+
+}
+public void setXY(int x,int y){
+        this.x=x;
+        this.y=y;
 }
 }

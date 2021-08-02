@@ -9,6 +9,7 @@ public class Player extends BaseElement {
     private int len;
     private int max;
     private final int id;
+    private boolean state;
     public Player(int x, int y, int id) {
         this.id=id;
         if(id==1)
@@ -20,9 +21,12 @@ public class Player extends BaseElement {
         this.hei=unit_len;
         this.wid=unit_len;
         this.speed=10;
-        this.len=unit_len;
+        this.len=1;
         this.max=1;
+        this.state=true;
     }
+    public boolean getState(){return state;}
+    public void setState(boolean state){this.state=state;}
     public int getMax(){ return max; }
     public void setMax(int max){this.max=max;}
     public int getSpeed(){
@@ -49,7 +53,7 @@ public class Player extends BaseElement {
                     prop.setImage(null);
                 }
                 else if(prop.getName()==2){
-                    this.len+=unit_len;
+                    this.len++;
                     prop.setName(0);
                     prop.setImage(null);
                 }
@@ -90,13 +94,15 @@ public class Player extends BaseElement {
             }
         }
     }
-    public void action(Obstacle[] obstacles,Props[] props){
+    public void action(Obstacle[] obstacles,Props[] props,Bomb... bombs){
         this.xMove(obstacles);
         this.yMove(obstacles);
         this.collide(props);
+
     }
     public void die(){
         Image image=new ImageIcon("src/main/resources/image/dead.png").getImage();
         this.setImage(image);
+        this.setState(false);
     }
 }
